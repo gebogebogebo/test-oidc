@@ -1,0 +1,18 @@
+version: '3'
+services:
+
+  sp:
+    build: ./rp
+    image: test-oidc-rp-image
+    container_name: test-oidc-rp
+    ports:
+      - 8081:80
+
+  keycloak:
+    image: jboss/keycloak 
+    container_name: test-oidc-keycloak
+    ports:
+      - 8080:8080
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=password
