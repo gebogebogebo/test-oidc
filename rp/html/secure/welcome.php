@@ -7,4 +7,6 @@
     		echo "$value <br />\n";
 	  }
   }
+  echo "<br /><br />\n";
+  echo "<button onclick=\"location.href='./logout.html'\">Logout</button>\n";
 ?>
