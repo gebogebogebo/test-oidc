@@ -6,8 +6,5 @@ RUN apt-get -y install tcpdump
 RUN echo '<!DOCTYPE html><html>This place is open.</html>' > /var/www/html/open-content.html
 RUN echo '<?php phpinfo(); ?>' > /var/www/html/phpinfo.php
 RUN echo '<?php $headers = apache_request_headers(); foreach ($headers as $header => $value) { echo "$header: $value <br />\n"; } ?>' > /var/www/html/phpheaders.php
-RUN echo '<!DOCTYPE html><html>Login with Keycloak<button onclick="location.href='\''./secure/secure-content.html'\''">Login</button></html>' > /var/www/html/index.html
-RUN mkdir /var/www/html/secure
-RUN echo '<!DOCTYPE html><html>This place is secure.</html>' > /var/www/html/secure/secure-content.html
-RUN echo '<?php phpinfo(); ?>' > /var/www/html/secure/phpinfo.php
-RUN echo '<?php $headers = apache_request_headers(); foreach ($headers as $header => $value) { echo "$header: $value <br />\n"; } ?>' > /var/www/html/secure/phpheaders.php
+COPY ./html/ /var/www/html/
+COPY ./auth_openidc.conf /etc/apache2/mods-enabled/
