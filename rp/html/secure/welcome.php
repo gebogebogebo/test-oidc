@@ -52,5 +52,8 @@
   echo "<button onclick=\"location.href='../index.html'\">Return to top while logged in</button>\n";
   echo "<br /><br />\n";
   echo "<button onclick=\"location.href='/secure?logout=http://test-oidc-rp:8081/loggedout.html'\">Logout</button>\n";
+
+  echo "<br /><br />\n";
+  echo "<button onclick=\"location.href='http://test-oidc-keycloak:8080/auth/realms/master/protocol/openid-connect/auth?response_type=code&scope=openid&client_id=test&redirect_uri=http://test-oidc-rp:8081/secure/setting/setting-content.html&prompt=login'\">setting</button>\n";
   
 ?>
